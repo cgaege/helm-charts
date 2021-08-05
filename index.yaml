@@ -9,6 +9,6 @@ entries:
     - information-discovery
     name: information-discovery
     urls:
-    - https://github.com/cgaege/helm-charts/information-discovery-0.0.1.tgz
+    - https://cgaege.github.io/helm-charts/information-discovery-0.0.1.tgz
     version: 0.0.1
 generated: "2021-08-05T12:14:43.575362801+02:00"
