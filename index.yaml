@@ -3,7 +3,19 @@ entries:
   information-discovery:
   - apiVersion: v1
     appVersion: 6.0.0
-    created: "2021-08-06T21:15:55.804065474+02:00"
+    created: "2021-08-06T21:28:03.499822196+02:00"
+    description: A Helm chart for information-discovery
+    digest: f5c0acc62ff4714606f6c6ef8013ba2965442097bc089b61e1562db55acd0e45
+    home: https://averbis.com/
+    keywords:
+    - information-discovery
+    name: information-discovery
+    urls:
+    - information-discovery-0.1.0.tgz
+    version: 0.1.0
+  - apiVersion: v1
+    appVersion: 6.0.0
+    created: "2021-08-06T21:28:03.499503234+02:00"
     description: A Helm chart for information-discovery
     digest: 1938f6d3e0414bba17659d410cfe792116dbc5e613f96624b40c14e828519ace
     home: https://averbis.com/
@@ -14,7 +26,7 @@ entries:
     - information-discovery-0.1.0-SNAPSHOT.tgz
     version: 0.1.0-SNAPSHOT
   - apiVersion: v1
-    created: "2021-08-06T21:15:55.803770426+02:00"
+    created: "2021-08-06T21:28:03.499207852+02:00"
     description: A generated Helm Chart for information-discovery from Skippbox Kompose
     digest: e6f4e6392dde738d9a576d974afc6cf72f15f619d1ccf470f87da2a99a435718
     keywords:
@@ -25,7 +37,7 @@ entries:
     version: 0.0.1
   - apiVersion: v1
     appVersion: 6.0.0
-    created: "2021-08-06T21:15:55.803441672+02:00"
+    created: "2021-08-06T21:28:03.498913951+02:00"
     description: A Helm chart for information-discovery
     digest: 614ebd680b8ad3add55f891f0c67d25a001cfe8a073586ecda24a17d1b764b86
     home: https://averbis.com/
@@ -35,4 +47,4 @@ entries:
     urls:
     - information-discovery-0.0.1-SNAPSHOT.tgz
     version: 0.0.1-SNAPSHOT
-generated: "2021-08-06T21:15:55.80292851+02:00"
+generated: "2021-08-06T21:28:03.498408822+02:00"
