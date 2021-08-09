@@ -16,6 +16,23 @@ entries:
     version: 0.3.0
   - apiVersion: v1
     appVersion: 6.0.0
+    created: "2021-08-09T11:59:51.126073447Z"
+    description: A Helm chart for information-discovery
+    digest: 7a560b7d0dea6bc77e46211a237177de0ac716bf8a545f2a5b5b879299671301
+    home: https://averbis.com/
+    icon: https://averbis.com/wp-content/uploads/2020/09/averbis_information_discovery.png
+    keywords:
+    - information-discovery
+    maintainers:
+    - email: info@averbis.com
+      name: averbis
+      url: https://averbis.com
+    name: information-discovery
+    urls:
+    - https://github.com/cgaege/helm-charts/releases/download/information-discovery-0.0.2-SNAPSHOT/information-discovery-0.0.2-SNAPSHOT.tgz
+    version: 0.0.2-SNAPSHOT
+  - apiVersion: v1
+    appVersion: 6.0.0
     created: "2021-08-09T08:01:42.264181166Z"
     description: A Helm chart for information-discovery
     digest: 259f4a17d51ff15ce12fb806f15028c34ea680e03e73ae80f32655c775590ab2
