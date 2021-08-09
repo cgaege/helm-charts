@@ -38,7 +38,7 @@ helm install my-release .
 
 ## Upgrading the Chart
 ```
- helm upgrade my-release
+ helm upgrade my-release averbis-charts/information-discovery
 ```
 
 ## Uninstalling the Chart
