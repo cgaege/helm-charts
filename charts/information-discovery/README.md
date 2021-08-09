@@ -10,7 +10,7 @@ This chart deploys Information Discovery in your Kubernetes cluster.
 
 ## Creating Secret to pull Images
 
-Create a secret named `averbis-docker-registry` in your Kubernetes clustern to pull images from the [Averbis docker registry](https://registry.averbis.com):
+Create a secret named `averbis-docker-registry` with your Averbis credentials to pull images from the [Averbis docker registry](https://registry.averbis.com):
 
 ```
 kubectl create secret docker-registry averbis-docker-registry \
