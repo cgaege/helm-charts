@@ -8,6 +8,6 @@ appVersion: "6.0.0"
 icon: https://averbis.com/wp-content/uploads/2020/09/averbis_information_discovery.png
 home: https://averbis.com/
 maintainers:
-  - name: Averbis GmbH
+  - name: averbis
     email: info@averbis.com
     url: https://averbis.com
