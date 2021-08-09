@@ -1,6 +1,6 @@
 name: information-discovery
 description: A Helm chart for information-discovery
-version: 0.0.1
+version: 0.0.2-SNAPSHOT
 apiVersion: v1
 keywords:
   - information-discovery
