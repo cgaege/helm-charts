@@ -1,5 +1,5 @@
 name: kafka
-description: Averbis Kafka Addons 
+description: Averbis Kafka Addons
 version: 0.0.1
 apiVersion: v1
 icon: https://upload.wikimedia.org/wikipedia/commons/0/05/Apache_kafka.svg
