@@ -12,7 +12,7 @@ Helm is a package manager for Kubernetes. Helm Charts are packages of pre-config
 To install Helm, refer to the [Helm install guide](https://helm.sh/docs/intro/install/).
 
 ```
-$ helm repo add averbis-charts https://cgaege.github.io/helm-charts
-$ helm search repo averbis-charts
-$ helm install my-release averbis-charts/<chart>
+$ helm repo add averbis https://cgaege.github.io/helm-charts
+$ helm search repo averbis
+$ helm install my-release averbis/<chart>
 ```

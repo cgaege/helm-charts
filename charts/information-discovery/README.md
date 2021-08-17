@@ -21,7 +21,7 @@ kubectl create secret docker-registry averbis-docker-registry \
 
 ## Adding the Helm Repository
 ```
-helm repo add averbis-charts https://cgaege.github.io/helm-charts/
+helm repo add averbis https://cgaege.github.io/helm-charts/
 helm repo update
 ```
 
@@ -29,7 +29,7 @@ helm repo update
 
 ### Installing using Helm Repository
 ```
-helm install my-release averbis-charts/information-discovery
+helm install my-release averbis/information-discovery
 ```
 ### Installing using Chart Sources
 ```
@@ -38,7 +38,7 @@ helm install my-release .
 
 ## Upgrading the Chart
 ```
- helm upgrade my-release averbis-charts/information-discovery
+ helm upgrade my-release averbis/information-discovery
 ```
 
 ## Uninstalling the Chart
