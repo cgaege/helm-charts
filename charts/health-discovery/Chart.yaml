@@ -1,6 +1,6 @@
 name: health-discovery
 description: A Helm chart for health-discovery
-version: 0.4.1
+version: 0.1.0
 apiVersion: v1
 keywords:
   - health-discovery
