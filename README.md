@@ -11,11 +11,12 @@ Helm is a package manager for Kubernetes. Helm Charts are packages of pre-config
 
 To install Helm, refer to the [Helm install guide](https://helm.sh/docs/intro/install/).
 
-## Browse Applications
+## Register Repository and Browse Applications
 
 ```bash
 helm repo add averbis https://averbis.github.io/helm-charts
 helm search repo averbis
 ```
 
+## Install Applications
 For application installation instructions please refer to the application specific documentation located in the [charts](charts) directory.
