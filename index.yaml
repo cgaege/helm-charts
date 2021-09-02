@@ -1,5 +1,23 @@
 apiVersion: v1
 entries:
+  health-discovery:
+  - apiVersion: v1
+    appVersion: 6.0.0
+    created: "2021-09-02T08:22:18.605772869Z"
+    description: A Helm chart for health-discovery
+    digest: 90d2b4f053a49cae316f339c3057768e65a75863568c0ccd5ed255439a8ccba2
+    home: https://averbis.com/
+    icon: https://averbis.com/wp-content/uploads/2020/09/averbis_health_discovery.png
+    keywords:
+    - health-discovery
+    maintainers:
+    - email: info@averbis.com
+      name: averbis
+      url: https://averbis.com
+    name: health-discovery
+    urls:
+    - https://github.com/cgaege/helm-charts/releases/download/health-discovery-0.1.1/health-discovery-0.1.1.tgz
+    version: 0.1.1
   information-discovery:
   - apiVersion: v1
     appVersion: 6.0.0
