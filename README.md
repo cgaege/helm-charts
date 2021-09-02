@@ -13,7 +13,7 @@ To install Helm, refer to the [Helm install guide](https://helm.sh/docs/intro/in
 
 ## Browse Applications
 
-```
+```console
 helm repo add averbis https://averbis.github.io/helm-charts
 helm search repo averbis
 ```
