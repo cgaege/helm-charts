@@ -14,8 +14,8 @@ To install Helm, refer to the [Helm install guide](https://helm.sh/docs/intro/in
 ## Browse Applications
 
 ```
-$ helm repo add averbis https://averbis.github.io/helm-charts
-$ helm search repo averbis
+helm repo add averbis https://averbis.github.io/helm-charts
+helm search repo averbis
 ```
 
 For application installation instructions please refer to the application specific documentation located in the [charts](charts) directory.
