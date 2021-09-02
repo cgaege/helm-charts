@@ -18,4 +18,4 @@ $ helm repo add averbis https://averbis.github.io/helm-charts
 $ helm search repo averbis
 ```
 
-For application installation instructions please refer to the application specific documentation located in the `charts` directory.
+For application installation instructions please refer to the application specific documentation located in the [charts](charts) directory.
