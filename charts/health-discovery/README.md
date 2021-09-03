@@ -27,13 +27,15 @@ helm repo update
 
 ## Installing the Chart
 
+The chart can be installed using the helm repository or by checking out the chart sources.
+
 ### Installing using Helm Repository
 ```
-helm install my-release averbis/health-discovery
+helm install hd averbis/health-discovery
 ```
 ### Installing using Chart Sources
 ```
-helm install my-release .
+helm install hd .
 ```
 
 ### Exposing the Application
@@ -62,10 +64,10 @@ You can access the application using the `EXTERNAL-IP` of the `health-discovery-
 
 ## Upgrading the Chart
 ```
- helm upgrade my-release averbis/health-discovery
+ helm upgrade hd averbis/health-discovery
 ```
 
 ## Uninstalling the Chart
 ```
-helm uninstall my-release
+helm uninstall hd
 ```

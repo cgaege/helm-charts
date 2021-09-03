@@ -27,13 +27,15 @@ helm repo update
 
 ## Installing the Chart
 
+The chart can be installed using the helm repository or by checking out the chart sources.
+
 ### Installing using Helm Repository
 ```
-helm install my-release averbis/information-discovery
+helm install id averbis/information-discovery
 ```
 ### Installing using Chart Sources
 ```
-helm install my-release .
+helm install id .
 ```
 
 ### Exposing the Application
@@ -62,10 +64,10 @@ You can access the application using the `EXTERNAL-IP` of the `information-disco
 
 ## Upgrading the Chart
 ```
- helm upgrade my-release averbis/information-discovery
+ helm upgrade id averbis/information-discovery
 ```
 
 ## Uninstalling the Chart
 ```
-helm uninstall my-release
+helm uninstall id
 ```
