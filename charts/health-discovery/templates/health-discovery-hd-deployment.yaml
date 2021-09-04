@@ -54,7 +54,9 @@ spec:
           name: health-discovery-hd
           ports:
             - containerPort: 8080
-          resources: {}
+          resources: 
+            requests:
+              memory: "24Gi"
           volumeMounts:
             - mountPath: /opt/resources/platform
               name: resourcevol
