@@ -48,7 +48,9 @@ spec:
           name: solr
           ports:
             - containerPort: 8983
-          resources: {}
+          resources: 
+            requests:
+              memory: "512Mi"
           volumeMounts:
             - mountPath: /opt/solr/server/solr/solrCores
               name: solrvol
