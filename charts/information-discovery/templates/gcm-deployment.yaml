@@ -54,7 +54,9 @@ spec:
           name: gcm
           ports:
             - containerPort: 8181
-          resources: {}
+          resources: 
+            requests:
+              memory: "2Gi"
           volumeMounts:
             - mountPath: /opt/resources/connector-manager/home
               name: gcmvol

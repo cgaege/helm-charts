@@ -54,7 +54,9 @@ spec:
           name: information-discovery-id
           ports:
             - containerPort: 8080
-          resources: {}
+          resources: 
+            requests:
+              memory: "16Gi"
           volumeMounts:
             - mountPath: /opt/resources/platform
               name: resourcevol
