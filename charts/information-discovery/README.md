@@ -43,7 +43,8 @@ helm install id .
 ```
 
 ### Chart Parameters
-The chart can be configured using parameters:
+The chart can be configured using the following parameters:
+
 | Name        | Description   | Value         |
 | ------------|:-------------:| -------------:|
 | `maxMemory` | Maximum memory| 16G           |
