@@ -30,13 +30,27 @@ helm repo update
 The chart can be installed using the helm repository or by checking out the chart sources.
 
 ### Installing using Helm Repository
+To install the chart with the release name `id`:
+
 ```
 helm install id averbis/information-discovery
 ```
+
 ### Installing using Chart Sources
+To install the chart with the release name `id` using cloned chart sources:
 ```
 helm install id .
 ```
+
+### Chart Parameters
+The chart can be configured using parameters:
+| Name        | Description   | Value         |
+| ------------|:-------------:| -------------:|
+| `maxMemory` | Maximum memory| 16G           |
+
+
+Specify each parameter using the `--set name=value` argument to `helm install` to overwrite the chart default values.
+
 
 ### Exposing the Application
 Create a kubernetes `service` of type `loadBalancer` to access the application from outside the kubernetes cluster. Out of the box this only works
@@ -63,11 +77,14 @@ You can access the application using the `EXTERNAL-IP` of the `information-disco
 
 
 ## Upgrading the Chart
+Upgrade the `id` release to the latest chart version. Data and configuration settings will be migrated.
 ```
  helm upgrade id averbis/information-discovery
 ```
 
 ## Uninstalling the Chart
+To uninstall the `id` release. This will delete all Kubernetes components associated with this chart. All data and configuration settings will be deleted as well.
+
 ```
 helm uninstall id
 ```
