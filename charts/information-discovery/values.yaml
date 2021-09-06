@@ -1,1 +1,2 @@
+# The maximum amount of memory for the information discovery container
 maxMemory: "16G"
