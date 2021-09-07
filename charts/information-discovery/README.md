@@ -43,14 +43,18 @@ helm install id .
 ```
 
 ### Chart Parameters
-The chart can be configured using the following parameters:
+The chart can optionally be configured using the following parameters:
 
 | Name        | Description   | Value         |
 | ------------|:-------------:| -------------:|
 | `maxMemory` | Maximum memory| 16G           |
 
 
-Specify each parameter using the `--set name=value` argument to `helm install` to overwrite the chart default values.
+Specify each parameter using the `--set name=value` argument to `helm install` and `helm upgrade`  to overwrite the chart default values, for example:
+
+```
+helm install id averbis/information-discovery --set maxMemory=24G
+```
 
 
 ### Exposing the Application
