@@ -33,7 +33,7 @@ spec:
             - name: SOLR_PORT
               value: "8983"
             - name: TEXTANALYSIS_URL
-              value: http://health-discovery-hd:8080/health-discovery/rest
+              value: http://health-discovery:8080/health-discovery/rest
           image: registry.averbis.com/solr/solr:6.2.0
           livenessProbe:
             exec:

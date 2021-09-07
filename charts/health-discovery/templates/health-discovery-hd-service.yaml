@@ -6,14 +6,14 @@ metadata:
     kompose.version: 1.22.0 (955b78124)
   creationTimestamp: null
   labels:
-    io.kompose.service: health-discovery-hd
-  name: health-discovery-hd
+    io.kompose.service: health-discovery
+  name: health-discovery
 spec:
   ports:
     - name: "8080"
       port: 8080
       targetPort: 8080
   selector:
-    io.kompose.service: health-discovery-hd
+    io.kompose.service: health-discovery
 status:
   loadBalancer: {}

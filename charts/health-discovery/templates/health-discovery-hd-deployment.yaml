@@ -6,13 +6,13 @@ metadata:
     kompose.version: 1.22.0 (955b78124)
   creationTimestamp: null
   labels:
-    io.kompose.service: health-discovery-hd
-  name: health-discovery-hd
+    io.kompose.service: health-discovery
+  name: health-discovery
 spec:
   replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: health-discovery-hd
+      io.kompose.service: health-discovery
   strategy:
     type: Recreate
   template:
@@ -22,7 +22,7 @@ spec:
         kompose.version: 1.22.0 (955b78124)
       creationTimestamp: null
       labels:
-        io.kompose.service: health-discovery-hd
+        io.kompose.service: health-discovery
     spec:
       imagePullSecrets:
       - name: averbis-docker-registry
@@ -51,7 +51,7 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 30
             timeoutSeconds: 5
-          name: health-discovery-hd
+          name: health-discovery
           ports:
             - containerPort: 8080
           resources: 
