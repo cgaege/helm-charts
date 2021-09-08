@@ -5,6 +5,7 @@ This chart deploys Health Discovery in your Kubernetes cluster.
 ## Prerequisites
 
 - A running Kubernetes cluster with at least 32 GB Ram on each worker node
+- Persistent volume provisioner support in the underlying Kubernetes infrastructure
 - [Kubectl](https://kubernetes.io/docs/tasks/tools/)
 - [Helm](https://helm.sh/docs/intro/install/)
 
