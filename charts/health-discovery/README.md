@@ -23,7 +23,6 @@ kubectl create secret docker-registry averbis-docker-registry \
 ## Adding the Helm Repository
 ```
 helm repo add averbis https://averbis.github.io/helm-charts/
-helm repo update
 ```
 
 ## Installing the Chart
@@ -65,7 +64,8 @@ You can access the application using the `EXTERNAL-IP` of the `hd-load-balancer`
 
 ## Upgrading the Chart
 ```
- helm upgrade hd averbis/health-discovery
+helm repo update
+helm upgrade hd averbis/health-discovery
 ```
 
 ## Uninstalling the Chart
