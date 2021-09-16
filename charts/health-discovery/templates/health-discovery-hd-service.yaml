@@ -2,18 +2,18 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    kompose.cmd: kompose convert -c -f docker-compose.yml -o information-discovery
+    kompose.cmd: kompose convert -c -f docker-compose.yml -o health-discovery
     kompose.version: 1.22.0 (955b78124)
   creationTimestamp: null
   labels:
-    io.kompose.service: information-discovery-id
-  name: information-discovery-id
+    io.kompose.service: health-discovery
+  name: health-discovery
 spec:
   ports:
     - name: "8080"
       port: 8080
       targetPort: 8080
   selector:
-    io.kompose.service: information-discovery-id
+    io.kompose.service: health-discovery
 status:
   loadBalancer: {}

@@ -1,0 +1,2 @@
+# The maximum amount of memory for the health discovery container
+maxMemory: "24G"
