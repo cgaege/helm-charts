@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    kompose.cmd: kompose convert -c -f docker-compose.yml -o information-discovery
+    kompose.cmd: kompose convert -c -f docker-compose.yml -o health-discovery
     kompose.version: 1.22.0 (955b78124)
   creationTimestamp: null
   labels:
@@ -18,7 +18,7 @@ spec:
   template:
     metadata:
       annotations:
-        kompose.cmd: kompose convert -c -f docker-compose.yml -o information-discovery
+        kompose.cmd: kompose convert -c -f docker-compose.yml -o health-discovery
         kompose.version: 1.22.0 (955b78124)
       creationTimestamp: null
       labels:
@@ -33,8 +33,8 @@ spec:
             - name: SOLR_PORT
               value: "8983"
             - name: TEXTANALYSIS_URL
-              value: http://information-discovery:8080/information-discovery/rest
-          image: registry.averbis.com/solr/solr:6.1.1
+              value: http://health-discovery:8080/health-discovery/rest
+          image: registry.averbis.com/solr/solr:6.2.0
           livenessProbe:
             exec:
               command:

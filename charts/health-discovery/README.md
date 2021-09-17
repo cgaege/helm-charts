@@ -1,10 +1,10 @@
-# Information Discovery Helm Chart
+# Health Discovery Helm Chart
 
-This chart deploys Information Discovery in your Kubernetes cluster.
+This chart deploys Health Discovery in your Kubernetes cluster.
 
 ## Prerequisites
 
-- A running Kubernetes cluster with at least 16 GB Ram on each worker node
+- A running Kubernetes cluster with at least 32 GB Ram on each worker node
 - Persistent volume provisioner support in the underlying Kubernetes infrastructure
 - [Kubectl](https://kubernetes.io/docs/tasks/tools/)
 - [Helm](https://helm.sh/docs/intro/install/)
@@ -30,39 +30,20 @@ helm repo add averbis https://averbis.github.io/helm-charts/
 The chart can be installed using the helm repository or by checking out the chart sources.
 
 ### Installing using Helm Repository
-To install the chart with the release name `id`:
-
 ```
-helm install id averbis/information-discovery
+helm install hd averbis/health-discovery
 ```
-
 ### Installing using Chart Sources
-To install the chart with the release name `id` using cloned chart sources:
 ```
-helm install id .
+helm install hd .
 ```
-
-### Chart Parameters
-The chart can optionally be configured using the following parameters:
-
-| Name        | Description   | Value         |
-| ------------|:-------------:| -------------:|
-| `maxMemory` | Maximum memory| 16G           |
-
-
-Specify each parameter using the `--set name=value` argument to `helm install` and `helm upgrade`  to overwrite the chart default values, for example:
-
-```
-helm install id averbis/information-discovery --set maxMemory=24G
-```
-
 
 ### Exposing the Application
 Create a kubernetes `service` of type `loadBalancer` to access the application from outside the kubernetes cluster. Out of the box this only works
 with cloud providers like Google GKE or AWS EKS.
 
 ```
-kubectl expose deployment information-discovery --type=LoadBalancer --name=id-load-balancer
+kubectl expose deployment health-discovery --type=LoadBalancer --name=hd-load-balancer
 ```
 
 Determine the load balancer URL:
@@ -72,25 +53,22 @@ kubectl get service
 NAME                       TYPE           CLUSTER-IP     EXTERNAL-IP    PORT(S)          AGE
 database                   ClusterIP      10.3.243.52    <none>         3306/TCP         9m30s
 gcm                        ClusterIP      10.3.247.190   <none>         8181/TCP         9m30s
-id-load-balancer           LoadBalancer   10.3.249.243   34.91.59.210   8080:30790/TCP   6m2s
-information-discovery      ClusterIP      10.3.246.164   <none>         8080/TCP         9m30s
+hd-load-balancer           LoadBalancer   10.3.249.243   34.91.59.210   8080:30790/TCP   6m2s
+health-discovery           ClusterIP      10.3.246.164   <none>         8080/TCP         9m30s
 kubernetes                 ClusterIP      10.3.240.1     <none>         443/TCP          21m
 solr                       ClusterIP      10.3.253.18    <none>         8983/TCP         9m30s
 ```
 
-You can access the application using the `EXTERNAL-IP` of the `id-load-balancer` service at http://EXTERNAL-IP:8080/information-discovery
+You can access the application using the `EXTERNAL-IP` of the `hd-load-balancer` service at http://EXTERNAL-IP:8080/health-discovery
 
 
 ## Upgrading the Chart
-Upgrade the `id` release to the latest chart version. Data and configuration settings will be migrated.
 ```
 helm repo update
-helm upgrade id averbis/information-discovery
+helm upgrade hd averbis/health-discovery
 ```
 
 ## Uninstalling the Chart
-To uninstall the `id` release. This will delete all Kubernetes components associated with this chart. All data and configuration settings will be deleted as well.
-
 ```
-helm uninstall id
+helm uninstall hd
 ```

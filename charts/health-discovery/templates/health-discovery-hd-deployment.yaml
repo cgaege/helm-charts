@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -c -f docker-compose.yml -o health-discovery
+    kompose.version: 1.22.0 (955b78124)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: health-discovery
+  name: health-discovery
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: health-discovery
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -c -f docker-compose.yml -o health-discovery
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: health-discovery
+    spec:
+      imagePullSecrets:
+      - name: averbis-docker-registry
+      containers:
+        - env:
+            - name: DATABASE_DRIVER_CLASS
+              value: org.mariadb.jdbc.Driver
+            - name: DATABASE_PASSWORD
+              value: getaccess
+            - name: DATABASE_URL
+              value: jdbc:mariadb://database:3306/aif?useMysqlMetadata=true
+            - name: DATABASE_USERNAME
+              value: aif
+            - name: PLATFORM_MAX_MEM
+              value: {{ .Values.maxMemory }}
+            - name: PLATFORM_PORT
+              value: "8080"
+          image: registry.averbis.com/health-discovery/health-discovery:6.1.0
+          livenessProbe:
+            exec:
+              command:
+                - curl
+                - -f
+                - http://localhost:8080/health-discovery
+            failureThreshold: 3
+            initialDelaySeconds: 60
+            periodSeconds: 30
+            timeoutSeconds: 5
+          name: health-discovery
+          ports:
+            - containerPort: 8080
+          resources: 
+            requests:
+              memory: {{ .Values.maxMemory }}
+          volumeMounts:
+            - mountPath: /opt/resources/platform
+              name: resourcevol
+      restartPolicy: Always
+      volumes:
+        - name: resourcevol
+          persistentVolumeClaim:
+            claimName: resourcevol
+status: {}
