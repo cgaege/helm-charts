@@ -22,26 +22,33 @@ kubectl create secret docker-registry averbis-docker-registry \
 ## Adding the Helm Repository
 ```
 helm repo add averbis-charts https://cgaege.github.io/helm-charts/
-helm repo update
 ```
 
 ## Installing the Chart
 
+The chart can be installed using the helm repository or by checking out the chart sources.
+
 ### Installing using Helm Repository
+To install the chart with the release name `kafka`:
 ```
-helm install my-release averbis-charts/kafka
+helm install kafka averbis-charts/kafka
 ```
 ### Installing using Chart Sources
+To install the chart with the release name `kafka` using cloned chart sources:
 ```
-helm install my-release .
+helm install kafka .
 ```
 
 ## Upgrading the Chart
+Upgrade the `kafka` release to the latest chart version.
 ```
- helm upgrade my-release averbis-charts/kafka
+helm repo update
+helm upgrade kafka averbis-charts/kafka
 ```
 
 ## Uninstalling the Chart
+To uninstall the `kafka` release. This will delete all Kubernetes components associated with this chart. All data and configuration settings will be deleted as well.
+
 ```
-helm uninstall my-release
+helm uninstall kafka
 ```
