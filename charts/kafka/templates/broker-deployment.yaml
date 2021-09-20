@@ -31,6 +31,14 @@ spec:
           ports:
             - containerPort: 9092
           resources: {}
+          volumeMounts:
+            - mountPath: /var/lib/kafka/topic-data
+              name: brokervol
       hostname: broker
       restartPolicy: Always
+      volumes:
+        - name: brokervol
+          persistentVolumeClaim:
+            claimName: brokervol
+
 status: {}
