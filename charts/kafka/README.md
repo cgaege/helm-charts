@@ -21,7 +21,7 @@ kubectl create secret docker-registry averbis-docker-registry \
 
 ## Adding the Helm Repository
 ```
-helm repo add averbis-charts https://cgaege.github.io/helm-charts/
+helm repo add averbis-charts https://averbis.github.io/helm-charts/
 ```
 
 ## Installing the Chart
