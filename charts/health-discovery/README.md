@@ -5,6 +5,7 @@ This chart deploys Health Discovery in your Kubernetes cluster.
 ## Prerequisites
 
 - A running Kubernetes cluster with at least 32 GB Ram on each worker node
+- Persistent volume provisioner support in the underlying Kubernetes infrastructure
 - [Kubectl](https://kubernetes.io/docs/tasks/tools/)
 - [Helm](https://helm.sh/docs/intro/install/)
 
@@ -22,7 +23,6 @@ kubectl create secret docker-registry averbis-docker-registry \
 ## Adding the Helm Repository
 ```
 helm repo add averbis https://averbis.github.io/helm-charts/
-helm repo update
 ```
 
 ## Installing the Chart
@@ -64,7 +64,8 @@ You can access the application using the `EXTERNAL-IP` of the `hd-load-balancer`
 
 ## Upgrading the Chart
 ```
- helm upgrade hd averbis/health-discovery
+helm repo update
+helm upgrade hd averbis/health-discovery
 ```
 
 ## Uninstalling the Chart

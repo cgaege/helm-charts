@@ -5,6 +5,7 @@ This chart deploys Information Discovery in your Kubernetes cluster.
 ## Prerequisites
 
 - A running Kubernetes cluster with at least 16 GB Ram on each worker node
+- Persistent volume provisioner support in the underlying Kubernetes infrastructure
 - [Kubectl](https://kubernetes.io/docs/tasks/tools/)
 - [Helm](https://helm.sh/docs/intro/install/)
 
@@ -22,7 +23,6 @@ kubectl create secret docker-registry averbis-docker-registry \
 ## Adding the Helm Repository
 ```
 helm repo add averbis https://averbis.github.io/helm-charts/
-helm repo update
 ```
 
 ## Installing the Chart
@@ -84,7 +84,8 @@ You can access the application using the `EXTERNAL-IP` of the `id-load-balancer`
 ## Upgrading the Chart
 Upgrade the `id` release to the latest chart version. Data and configuration settings will be migrated.
 ```
- helm upgrade id averbis/information-discovery
+helm repo update
+helm upgrade id averbis/information-discovery
 ```
 
 ## Uninstalling the Chart
