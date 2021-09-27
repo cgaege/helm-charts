@@ -30,12 +30,18 @@ spec:
         - env:
             - name: DATABASE_DRIVER_CLASS
               value: org.mariadb.jdbc.Driver
+            - name: DATABASE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: database-secret
+                  key: mysql-username
             - name: DATABASE_PASSWORD
-              value: getaccess
+              valueFrom:
+                secretKeyRef:
+                  name: database-secret
+                  key: mysql-password
             - name: DATABASE_URL
               value: jdbc:mariadb://database:3306/aif?useMysqlMetadata=true
-            - name: DATABASE_USERNAME
-              value: aif
             - name: PLATFORM_MAX_MEM
               value: {{ .Values.maxMemory }}
             - name: PLATFORM_PORT

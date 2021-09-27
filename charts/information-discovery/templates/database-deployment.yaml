@@ -28,12 +28,21 @@ spec:
         - env:
             - name: MYSQL_DATABASE
               value: aif
-            - name: MYSQL_PASSWORD
-              value: getaccess
-            - name: MYSQL_ROOT_PASSWORD
-              value: getaccess
             - name: MYSQL_USER
-              value: aif
+              valueFrom:
+                secretKeyRef:
+                  name: database-secret
+                  key: mysql-username
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: database-secret
+                  key: mysql-password
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: database-secret
+                  key: mysql-root-password
             - name: innodb_buffer_pool_size
               value: 512m
             - name: innodb_log_buffer_size
