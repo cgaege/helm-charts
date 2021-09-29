@@ -30,12 +30,28 @@ helm repo add averbis https://averbis.github.io/helm-charts/
 The chart can be installed using the helm repository or by checking out the chart sources.
 
 ### Installing using Helm Repository
+To install the chart with the release name `hd`:
 ```
 helm install hd averbis/health-discovery
 ```
 ### Installing using Chart Sources
+To install the chart with the release name `hd` using cloned chart sources:
 ```
 helm install hd .
+```
+
+### Chart Parameters
+The chart can optionally be configured using the following parameters:
+
+| Name        | Description   | Value         |
+| ------------|:-------------:| -------------:|
+| `maxMemory` | Maximum memory| 24G           |
+
+
+Specify each parameter using the `--set name=value` argument to `helm install` and `helm upgrade`  to overwrite the chart default values, for example:
+
+```
+helm install hd averbis/health-discovery --set maxMemory=32G
 ```
 
 ### Exposing the Application
