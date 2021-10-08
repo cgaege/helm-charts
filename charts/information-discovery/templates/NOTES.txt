@@ -5,6 +5,8 @@ Watch the deployment status using the command:
   kubectl get pods -w
 
 
+{{ if not .Values.existingDbSecret }}
 To obtain the MariaDB root user password:
 
     kubectl get secret database-secret -o jsonpath="{.data.database-root-password}" | base64 --decode
+{{ end }}

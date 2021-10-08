@@ -33,12 +33,20 @@ spec:
             - name: DATABASE_USERNAME
               valueFrom:
                 secretKeyRef:
+                  {{ if .Values.existingDbSecret }}
+                  name: {{ .Values.existingDbSecret }}
+                  {{- else }}
                   name: database-secret
+                  {{ end }}
                   key: database-username
             - name: DATABASE_PASSWORD
               valueFrom:
                 secretKeyRef:
+                  {{ if .Values.existingDbSecret }}
+                  name: {{ .Values.existingDbSecret }}
+                  {{- else }}
                   name: database-secret
+                  {{ end }}
                   key: database-password
             - name: DATABASE_URL
               value: jdbc:mariadb://database:3306/aif?useMysqlMetadata=true

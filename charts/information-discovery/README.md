@@ -45,9 +45,10 @@ helm install id .
 ### Chart Parameters
 The chart can optionally be configured using the following parameters:
 
-| Name        | Description   | Value         |
-| ------------|:-------------:| -------------:|
-| `maxMemory` | Maximum memory| 16G           |
+| Name        | Description         | Default Value     |
+| :----------:|:-------------------:| :----------------:|
+| `maxMemory` | Maximum memory      | 16G               |
+| `existingDbSecret`  | Use MariaDB credentials from an existing secret. The secret has to contain the keys `database-root-password`, `database-password` and `database-username` | "" |
 
 
 Specify each parameter using the `--set name=value` argument to `helm install` and `helm upgrade`  to overwrite the chart default values, for example:

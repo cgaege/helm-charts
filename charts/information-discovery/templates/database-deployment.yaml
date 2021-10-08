@@ -31,17 +31,29 @@ spec:
             - name: MYSQL_USER
               valueFrom:
                 secretKeyRef:
+                  {{ if .Values.existingDbSecret }}
+                  name: {{ .Values.existingDbSecret }}
+                  {{- else }}
                   name: database-secret
+                  {{ end }}
                   key: database-username
             - name: MYSQL_PASSWORD
               valueFrom:
                 secretKeyRef:
+                  {{ if .Values.existingDbSecret }}
+                  name: {{ .Values.existingDbSecret }}
+                  {{- else }}
                   name: database-secret
+                  {{ end }}
                   key: database-password
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
+                  {{ if .Values.existingDbSecret }}
+                  name: {{ .Values.existingDbSecret }}
+                  {{- else }}
                   name: database-secret
+                  {{ end }}
                   key: database-root-password
             - name: innodb_buffer_pool_size
               value: 512m
