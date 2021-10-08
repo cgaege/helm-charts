@@ -34,12 +34,12 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: database-secret
-                  key: mysql-username
+                  key: database-username
             - name: DATABASE_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: database-secret
-                  key: mysql-password
+                  key: database-password
             - name: DATABASE_URL
               value: jdbc:mariadb://database:3306/aif?useMysqlMetadata=true
             - name: PLATFORM_MAX_MEM

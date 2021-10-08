@@ -32,17 +32,17 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: database-secret
-                  key: mysql-username
+                  key: database-username
             - name: MYSQL_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: database-secret
-                  key: mysql-password
+                  key: database-password
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: database-secret
-                  key: mysql-root-password
+                  key: database-root-password
             - name: innodb_buffer_pool_size
               value: 512m
             - name: innodb_log_buffer_size
