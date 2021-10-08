@@ -89,7 +89,7 @@ helm upgrade id averbis/information-discovery
 ```
 
 ## Uninstalling the Chart
-To uninstall the `id` release. This will delete all Kubernetes components associated with this chart. All data and configuration settings will be deleted as well.
+Uninstall the `id` release. This will delete all Kubernetes components associated with this chart. All data and configuration settings will be deleted as well.
 
 ```
 helm uninstall id

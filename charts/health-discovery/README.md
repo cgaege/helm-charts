@@ -30,12 +30,28 @@ helm repo add averbis https://averbis.github.io/helm-charts/
 The chart can be installed using the helm repository or by checking out the chart sources.
 
 ### Installing using Helm Repository
+To install the chart with the release name `hd`:
 ```
 helm install hd averbis/health-discovery
 ```
 ### Installing using Chart Sources
+To install the chart with the release name `hd` using cloned chart sources:
 ```
 helm install hd .
+```
+
+### Chart Parameters
+The chart can optionally be configured using the following parameters:
+
+| Name        | Description   | Value         |
+| ------------|:-------------:| -------------:|
+| `maxMemory` | Maximum memory| 24G           |
+
+
+Specify each parameter using the `--set name=value` argument to `helm install` and `helm upgrade`  to overwrite the chart default values, for example:
+
+```
+helm install hd averbis/health-discovery --set maxMemory=32G
 ```
 
 ### Exposing the Application
@@ -63,12 +79,15 @@ You can access the application using the `EXTERNAL-IP` of the `hd-load-balancer`
 
 
 ## Upgrading the Chart
+Upgrade the `hd` release to the latest chart version. Data and configuration settings will be migrated.
 ```
 helm repo update
 helm upgrade hd averbis/health-discovery
 ```
 
 ## Uninstalling the Chart
+Uninstall the `hd` release. This will delete all Kubernetes components associated with this chart. All data and configuration settings will be deleted as well.
+
 ```
 helm uninstall hd
 ```
