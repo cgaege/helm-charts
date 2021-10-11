@@ -57,6 +57,8 @@ Specify each parameter using the `--set name=value` argument to `helm install` a
 helm install id averbis/information-discovery --set maxMemory=24G
 ```
 
+NOTE: Once this chart is deployed, it is not possible to change the MariaDB access credentials, such as usernames or passwords, using Helm.
+
 
 ### Exposing the Application
 Create a kubernetes `service` of type `loadBalancer` to access the application from outside the kubernetes cluster. Out of the box this only works
