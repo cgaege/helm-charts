@@ -38,7 +38,7 @@ spec:
                   {{- else }}
                   name: database-secret
                   {{ end }}
-                  key: database-username
+                  key: databaseUsername
             - name: DATABASE_PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -47,7 +47,7 @@ spec:
                   {{- else }}
                   name: database-secret
                   {{ end }}
-                  key: database-password
+                  key: databasePassword
             - name: DATABASE_URL
               value: jdbc:mariadb://database:3306/aif?useMysqlMetadata=true
             - name: PLATFORM_MAX_MEM

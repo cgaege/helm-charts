@@ -36,7 +36,7 @@ spec:
                   {{- else }}
                   name: database-secret
                   {{ end }}
-                  key: database-username
+                  key: databaseUsername
             - name: MYSQL_PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -45,7 +45,7 @@ spec:
                   {{- else }}
                   name: database-secret
                   {{ end }}
-                  key: database-password
+                  key: databasePassword
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -54,7 +54,7 @@ spec:
                   {{- else }}
                   name: database-secret
                   {{ end }}
-                  key: database-root-password
+                  key: databaseRootPassword
             - name: innodb_buffer_pool_size
               value: 512m
             - name: innodb_log_buffer_size
