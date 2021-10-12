@@ -49,8 +49,8 @@ spec:
                   {{ end }}
                   key: databasePassword
             - name: DATABASE_URL
-              {{ if .Values.externalJdbcConnectionUrl }}
-              value: {{ .Values.externalJdbcConnectionUrl }}
+              {{ if .Values.externalDbConnectionUrl }}
+              value: {{ .Values.externalDbConnectionUrl }}
               {{- else }}
               value: jdbc:mariadb://database:3306/aif?useMysqlMetadata=true
                {{ end }}

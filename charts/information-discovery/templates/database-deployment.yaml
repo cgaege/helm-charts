@@ -1,4 +1,4 @@
-{{ if not .Values.externalJdbcConnectionUrl }}
+{{ if not .Values.externalDbConnectionUrl }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
