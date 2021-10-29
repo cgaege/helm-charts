@@ -53,7 +53,7 @@ The chart can optionally be configured using the following parameters:
 Specify each parameter using the `--set name=value` argument to `helm install` and `helm upgrade`  to overwrite the chart default values, for example:
 
 ```
-helm install hd averbis/health-discovery maxMemory=24G,existingDbSecret=my-secret,externalDbConnectionUrl=jdbc:mariadb://my-mariadb-host:3306/mydb?useMysqlMetadata=true
+helm install hd averbis/health-discovery --set maxMemory=24G,existingDbSecret=my-secret,externalDbConnectionUrl=jdbc:mariadb://my-mariadb-host:3306/mydb?useMysqlMetadata=true
 ```
 
 NOTE: Once this chart is deployed, it is not possible to change the MariaDB access credentials, such as usernames or passwords, using Helm.
