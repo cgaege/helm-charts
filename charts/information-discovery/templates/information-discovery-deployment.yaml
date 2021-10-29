@@ -53,7 +53,7 @@ spec:
               value: {{ .Values.externalDbConnectionUrl }}
               {{- else }}
               value: jdbc:mariadb://database:3306/aif?useMysqlMetadata=true
-               {{ end }}
+              {{ end }}
             - name: PLATFORM_MAX_MEM
               value: {{ .Values.maxMemory }}
             - name: PLATFORM_PORT
