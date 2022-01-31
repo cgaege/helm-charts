@@ -33,7 +33,7 @@ spec:
             - name: GCM_PORT
               value: "8181"
             - name: JAVA_MAX_MEM
-              value: 2g
+              value: 512m
             - name: PLATFORM_HOSTNAME
               value: health-discovery
             - name: PLATFORM_PORT
@@ -56,7 +56,7 @@ spec:
             - containerPort: 8181
           resources: 
             requests:
-              memory: "2Gi"
+              memory: "512Mi"
           volumeMounts:
             - mountPath: /opt/resources/connector-manager/home
               name: gcmvol
