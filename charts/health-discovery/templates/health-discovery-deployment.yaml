@@ -65,10 +65,16 @@ spec:
                 - curl
                 - -f
                 - http://localhost:8080/health-discovery
-            failureThreshold: 3
-            initialDelaySeconds: 60
-            periodSeconds: 30
-            timeoutSeconds: 5
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          startupProbe:
+            exec:
+              command:
+              - curl
+              - -f
+              - http://localhost:8080/health-discovery
+            failureThreshold: 30
+            periodSeconds: 10
           name: health-discovery
           ports:
             - containerPort: 8080
