@@ -4,7 +4,7 @@ version: 0.0.1-SNAPSHOT
 apiVersion: v1
 keywords:
   - patent-monitor
-appVersion: "6.5.0"
+appVersion: "6.5.1"
 home: https://averbis.com/
 maintainers:
   - name: averbis

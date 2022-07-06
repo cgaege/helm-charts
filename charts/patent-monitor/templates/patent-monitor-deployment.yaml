@@ -2,27 +2,27 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    kompose.cmd: kompose convert -c -f docker-compose.yml -o information-discovery
+    kompose.cmd: kompose convert -c -f docker-compose.yml -o patent-monitor
     kompose.version: 1.22.0 (955b78124)
   creationTimestamp: null
   labels:
-    io.kompose.service: information-discovery
-  name: information-discovery
+    io.kompose.service: patent-monitor
+  name: patent-monitor
 spec:
   replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: information-discovery
+      io.kompose.service: patent-monitor
   strategy:
     type: Recreate
   template:
     metadata:
       annotations:
-        kompose.cmd: kompose convert -c -f docker-compose.yml -o information-discovery
+        kompose.cmd: kompose convert -c -f docker-compose.yml -o patent-monitor
         kompose.version: 1.22.0 (955b78124)
       creationTimestamp: null
       labels:
-        io.kompose.service: information-discovery
+        io.kompose.service: patent-monitor
     spec:
       imagePullSecrets:
       - name: averbis-docker-registry
@@ -58,18 +58,18 @@ spec:
               value: {{ .Values.maxMemory }}
             - name: PLATFORM_PORT
               value: "8080"
-          image: registry.averbis.com/information-discovery/information-discovery:6.2.0
+          image: registry.averbis.com/patent-monitor/patent-monitor:6.5.1
           livenessProbe:
             exec:
               command:
                 - curl
                 - -f
-                - http://localhost:8080/information-discovery
+                - http://localhost:8080/patent-monitor
             failureThreshold: 3
             initialDelaySeconds: 60
             periodSeconds: 30
             timeoutSeconds: 5
-          name: information-discovery
+          name: patent-monitor
           ports:
             - containerPort: 8080
           resources: 

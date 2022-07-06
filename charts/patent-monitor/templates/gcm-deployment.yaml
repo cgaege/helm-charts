@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    kompose.cmd: kompose convert -c -f docker-compose.yml -o information-discovery
+    kompose.cmd: kompose convert -c -f docker-compose.yml -o patent-monitor
     kompose.version: 1.22.0 (955b78124)
   creationTimestamp: null
   labels:
@@ -18,7 +18,7 @@ spec:
   template:
     metadata:
       annotations:
-        kompose.cmd: kompose convert -c -f docker-compose.yml -o information-discovery
+        kompose.cmd: kompose convert -c -f docker-compose.yml -o patent-monitor
         kompose.version: 1.22.0 (955b78124)
       creationTimestamp: null
       labels:
@@ -35,12 +35,12 @@ spec:
             - name: JAVA_MAX_MEM
               value: 2g
             - name: PLATFORM_HOSTNAME
-              value: information-discovery
+              value: patent-monitor
             - name: PLATFORM_PORT
               value: "8080"
             - name: PLATFORM_URL_NAME
-              value: information-discovery
-          image: registry.averbis.com/gcm/gcm:6.10.0
+              value: patent-monitor
+          image: registry.averbis.com/gcm/gcm:6.25.0
           livenessProbe:
             exec:
               command:
