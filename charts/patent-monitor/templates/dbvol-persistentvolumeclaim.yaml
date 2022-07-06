@@ -1,0 +1,16 @@
+{{ if not .Values.externalDbConnectionUrl }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  creationTimestamp: null
+  labels:
+    io.kompose.service: dbvol
+  name: dbvol
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Gi
+status: {}
+{{ end }}

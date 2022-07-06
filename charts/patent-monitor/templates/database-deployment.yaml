@@ -1,0 +1,79 @@
+{{ if not .Values.externalDbConnectionUrl }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -c -f docker-compose.yml -o information-discovery
+    kompose.version: 1.22.0 (955b78124)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: database
+  name: database
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: database
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -c -f docker-compose.yml -o information-discovery
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: database
+    spec:
+      containers:
+        - env:
+            - name: MYSQL_DATABASE
+              value: aif
+            - name: MYSQL_USER
+              valueFrom:
+                secretKeyRef:
+                  {{ if .Values.existingDbSecret }}
+                  name: {{ .Values.existingDbSecret }}
+                  {{- else }}
+                  name: database-secret
+                  {{ end }}
+                  key: databaseUsername
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  {{ if .Values.existingDbSecret }}
+                  name: {{ .Values.existingDbSecret }}
+                  {{- else }}
+                  name: database-secret
+                  {{ end }}
+                  key: databasePassword
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  {{ if .Values.existingDbSecret }}
+                  name: {{ .Values.existingDbSecret }}
+                  {{- else }}
+                  name: database-secret
+                  {{ end }}
+                  key: databaseRootPassword
+            - name: innodb_buffer_pool_size
+              value: 512m
+            - name: innodb_log_buffer_size
+              value: 256m
+            - name: innodb_log_file_size
+              value: 256m
+          image: mariadb:10.5
+          name: database
+          ports:
+            - containerPort: 3306
+          resources: {}
+          volumeMounts:
+            - mountPath: /var/lib/mysql
+              name: dbvol
+      restartPolicy: Always
+      volumes:
+        - name: dbvol
+          persistentVolumeClaim:
+            claimName: dbvol
+status: {}
+{{ end }}
