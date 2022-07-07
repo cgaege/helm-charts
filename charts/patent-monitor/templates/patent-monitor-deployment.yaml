@@ -1,0 +1,87 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -c -f docker-compose.yml -o patent-monitor
+    kompose.version: 1.22.0 (955b78124)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: patent-monitor
+  name: patent-monitor
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: patent-monitor
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -c -f docker-compose.yml -o patent-monitor
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: patent-monitor
+    spec:
+      imagePullSecrets:
+      - name: averbis-docker-registry
+      containers:
+        - env:
+            - name: DATABASE_DRIVER_CLASS
+              value: org.mariadb.jdbc.Driver
+            - name: DATABASE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  {{ if .Values.existingDbSecret }}
+                  name: {{ .Values.existingDbSecret }}
+                  {{- else }}
+                  name: database-secret
+                  {{ end }}
+                  key: databaseUsername
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  {{ if .Values.existingDbSecret }}
+                  name: {{ .Values.existingDbSecret }}
+                  {{- else }}
+                  name: database-secret
+                  {{ end }}
+                  key: databasePassword
+            - name: DATABASE_URL
+              {{ if .Values.externalDbConnectionUrl }}
+              value: {{ .Values.externalDbConnectionUrl }}
+              {{- else }}
+              value: jdbc:mariadb://database:3306/aif?useMysqlMetadata=true
+              {{ end }}
+            - name: PLATFORM_MAX_MEM
+              value: {{ .Values.maxMemory }}
+            - name: PLATFORM_PORT
+              value: "8080"
+          image: registry.averbis.com/patent-monitor/patent-monitor:6.5.1
+          livenessProbe:
+            exec:
+              command:
+                - curl
+                - -f
+                - http://localhost:8080/patent-monitor
+            failureThreshold: 3
+            initialDelaySeconds: 60
+            periodSeconds: 30
+            timeoutSeconds: 5
+          name: patent-monitor
+          ports:
+            - containerPort: 8080
+          resources: 
+            requests:
+              memory: {{ .Values.maxMemory }}
+              cpu: 1000m
+          volumeMounts:
+            - mountPath: /opt/resources/platform
+              name: resourcevol
+      restartPolicy: Always
+      volumes:
+        - name: resourcevol
+          persistentVolumeClaim:
+            claimName: resourcevol
+status: {}

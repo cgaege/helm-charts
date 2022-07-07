@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -c -f docker-compose.yml -o patent-monitor
+    kompose.version: 1.22.0 (955b78124)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: solr
+  name: solr
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: solr
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -c -f docker-compose.yml -o patent-monitor
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: solr
+    spec:
+      imagePullSecrets:
+      - name: averbis-docker-registry
+      containers:
+        - env:
+            - name: SOLR_MAX_MEM
+              value: 512m
+            - name: SOLR_PORT
+              value: "8983"
+            - name: TEXTANALYSIS_URL
+              value: http://patent-monitor:8080/patent-monitor/rest
+          image: registry.averbis.com/patent-monitor/solr:6.5.1
+          livenessProbe:
+            exec:
+              command:
+                - curl
+                - -f
+                - http://localhost:8983/solr/terms/admin/ping
+            failureThreshold: 3
+            initialDelaySeconds: 30
+            periodSeconds: 30
+            timeoutSeconds: 5
+          name: solr
+          ports:
+            - containerPort: 8983
+          resources: 
+            requests:
+              memory: "512Mi"
+          volumeMounts:
+            - mountPath: /opt/solr/server/solr/solrCores
+              name: solrvol
+      restartPolicy: Always
+      volumes:
+        - name: solrvol
+          persistentVolumeClaim:
+            claimName: solrvol
+status: {}

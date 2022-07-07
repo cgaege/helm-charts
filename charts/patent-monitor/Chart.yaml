@@ -1,0 +1,12 @@
+name: patent-monitor
+description: Patent Searching and Monitoring based on Artificial Intelligence
+version: 0.1.0
+apiVersion: v1
+keywords:
+  - patent-monitor
+appVersion: "6.5.1"
+home: https://averbis.com/
+maintainers:
+  - name: averbis
+    email: info@averbis.com
+    url: https://averbis.com
