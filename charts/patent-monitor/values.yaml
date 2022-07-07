@@ -1,4 +1,4 @@
-# The maximum amount of memory for the information discovery container
+# The maximum amount of memory for the patent monitor container
 maxMemory: "16G"
 
 # Use existing secret for MariaDB authentication parameters
