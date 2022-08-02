@@ -17,7 +17,7 @@ Create a secret named `averbis-docker-registry` with your Averbis credentials to
 kubectl create secret docker-registry averbis-docker-registry \
 --docker-server=https://registry.averbis.com \
 --docker-username=me@example.com \
---docker-password=MySecretPassword
+--docker-password='MySecretPassword'
 ```
 
 ## Adding the Helm Repository
