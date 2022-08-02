@@ -1,6 +1,6 @@
 name: information-discovery
 description: Information Discovery NLP and ML platform
-version: 0.14.0
+version: 0.14.1
 apiVersion: v1
 keywords:
   - information-discovery
