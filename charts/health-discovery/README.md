@@ -46,7 +46,7 @@ The chart can optionally be configured using the following parameters:
 | Name        | Description         | Default Value     |
 | :----------:|:-------------------:| :----------------:|
 | `maxMemory` | Maximum memory      | 24G               |
-| `existingDbSecret`  | Use MariaDB credentials from an existing secret. The secret has to contain the keys `databaseRootPassword`, `databasePassword` and `databaseUsername`. Please refer to the [kubernetes documentation](https://kubernetes.io/docs/tasks/configmap-secret/managing-secret-using-kubectl/) for more information about how to create secrets | "" |
+| `existingDbSecret`  | Use MariaDB credentials from an existing secret. The secret has to contain the keys `databaseUsername` and `databasePassword`. Please refer to the [kubernetes documentation](https://kubernetes.io/docs/tasks/configmap-secret/managing-secret-using-kubectl/) for more information about how to create secrets | "" |
 | `externalDbConnectionUrl` | JDBC connection URL of an external MariaDB 10.x database. Requires the `existingDbSecret` parameter to be set | "" |
 
 
