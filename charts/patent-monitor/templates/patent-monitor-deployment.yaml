@@ -75,7 +75,7 @@ spec:
           resources: 
             requests:
               memory: {{ .Values.maxMemory }}
-              cpu: 1000m
+              cpu: 500m
           volumeMounts:
             - mountPath: /opt/resources/platform
               name: resourcevol
