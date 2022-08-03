@@ -4,7 +4,7 @@ This chart deploys Patent Monitor in your Kubernetes cluster.
 
 ## Prerequisites
 
-- A running Kubernetes cluster
+- A Kubernetes cluster
 - Persistent volume provisioner support in the underlying Kubernetes infrastructure
 - [Kubectl](https://kubernetes.io/docs/tasks/tools/)
 - [Helm](https://helm.sh/docs/intro/install/)
