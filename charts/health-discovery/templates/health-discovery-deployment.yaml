@@ -58,6 +58,10 @@ spec:
               value: {{ .Values.maxMemory }}
             - name: PLATFORM_PORT
               value: "8080"
+            - name: SOLR_HOSTNAME
+              value: "solr"
+            - name: SOLR_PORT
+              value: "8983"
           image: registry.averbis.com/health-discovery/health-discovery:6.17.0
           livenessProbe:
             exec:
